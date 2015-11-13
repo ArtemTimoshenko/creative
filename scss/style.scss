@@ -137,9 +137,18 @@ nav{
 	&__overlay{
 		border: 1px solid #D7D7D7;
 		position: relative;
-		img{
+		&-link{
 			display: block;
 			width: 100%;
+			&:hover{
+				opacity: .7;
+			}
+			img{
+				display: block;
+				width: 100%;
+				position: relative;
+				z-index: 1;
+			}
 		}
 	}
 	&__social{
@@ -151,6 +160,7 @@ nav{
 		width: 48px;
 		text-align: center;
 		padding-top: 12px;
+		z-index: 2;
 		&:hover{
 			background-color: #D76048;
 		}
@@ -223,7 +233,8 @@ nav{
 		}
 	}
 	&__date{
-		padding-top: 4px;
+		display: inline-block;
+		padding-top: 8px;
 		margin: 0;
 		font-style: italic;
 		font-size: 11px;
@@ -263,8 +274,8 @@ nav{
 
 .ba-sidebar__overflow{
 	@media (max-width: $medium-breakpoint) {
-			padding: 10px;
-		}
+		padding: 10px;
+	}
 }
 
 .ba-sidebar{
@@ -274,9 +285,9 @@ nav{
 	border: 1px solid #D7D7D7;
 	position: relative;
 	@media (max-width: $medium-breakpoint) {
-			padding: 10px;
-		}
-		&:before{
+		padding: 20px;
+	}
+	&:before{
 		content: "";
 		position: absolute;
 		height: 4px;
@@ -302,6 +313,14 @@ nav{
 	&__posts,
 	&__tags{
 		padding-right: 35px;
+	}
+	&__article,
+	&__posts,
+	&__tags,
+	&__subscription{
+		@media (max-width: $small-breakpoint) {
+			padding-right: 0;
+		}
 	}
 	&__title{
 		font-weight: bold;
@@ -377,6 +396,9 @@ nav{
 	}
 	&__posts{
 		padding-top: 28px;
+		@media (max-width: $medium-breakpoint) {
+			padding-top: 12px;
+		}
 	}
 	&__list{
 		padding: 10px 0;
@@ -445,14 +467,25 @@ nav{
 
 .ba-footer{
 	margin-top: 50px;
-	padding: 50px 0;
+	padding: 50px 0 110px 0;
 	background-color: #343434;
+	@media (max-width: $small-breakpoint) {
+		padding: 30px 0;
+	}
+	&__overflow{
+		@media (max-width: $medium-breakpoint) {
+			padding: 0 10px;
+		}
+	}
 	&__text{
 		font-size: 12px;
 		color: #FFF;
 		margin: 0;
 		line-height: 20px;
 		padding-right: 40px;
+		@media (max-width: $small-breakpoint) {
+			padding: 0 20px 30px 20px;
+		}
 	}
 	&__significatiom{
 		padding: 7px 20px 20px 20px;
@@ -487,6 +520,74 @@ nav{
 		position: absolute;
 		bottom: 21px;
 		left: 16px;
+	}
+	&__socials{
+		padding-top: 20px;
+		@media (max-width: $small-breakpoint) {
+			text-align: center;
+		}
+	}
+	&__social{
+		display: inline-block;
+		-webkit-border-radius: 50%;
+		border-radius: 50%;
+		background-color: #F26C4F;
+		height: 48px;
+		width: 48px;
+		text-align: center;
+		padding-top: 12px;
+		margin-right: 10px;
+		&:hover{
+			background-color: #D76048;
+		}
+	}
+	&__rights{
+		padding-top: 38px;
+		color: #9A9A9A;
+		font-size: 12px;
+		line-height: 20px;
+	}
+}
+
+// -------------------------------------SOCIALSBAR
+
+.ba-socials-bar{
+	display: none;
+	height: 200px;
+	width: 45px;
+	font-size: 0;
+	position: fixed;
+	top: 25vh;
+	@media (min-width: $large-breakpoint) {
+		display: block;
+	}
+	&__link{
+		display: inline-block;
+		padding-top: 11px;
+		height: 48px;
+		width: 42px;
+		background-color: #F3785C;
+		text-align: center;
+		border: solid #D75F48;
+		border-width: 0 1px 1px 0;
+		&:hover{
+			background-color: #D9654E;
+		}
+	}
+	&__link:first-child{
+		border-width: 1px 1px 1px 0;
+		-webkit-border-top-right-radius: 3px;
+		border-top-right-radius: 3px;
+	}
+	&__link:last-child{
+		-webkit-border-bottom-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+	}
+	&__icon{
+		fill: #BB341B;
+		height: 25px;
+		width: 25px;
+		filter: drop-shadow(0px 1px 0 rgba(255, 255, 255, 0.6));
 	}
 }
 
